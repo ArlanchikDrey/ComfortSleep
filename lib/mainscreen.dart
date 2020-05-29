@@ -38,7 +38,8 @@ class _MainScreenState extends State<MainScreen> {
 
   playPlayer(int index) async{
       player = await audio.play(soundList[index]);
-      player.positionHandler = _positionHandler; // ????
+      // ignore: deprecated_member_use
+      player.positionHandler = _positionHandler; 
       setState(() {
         currentlyPlaying = index;
         playing = true;
@@ -66,7 +67,7 @@ class _MainScreenState extends State<MainScreen> {
               decoration: BoxDecoration(
                 color: Colors.white,
               ),
-                child: new ListView.builder(
+                child: ListView.builder(
                   itemCount: soundList.length,
                   itemBuilder: (context,index) => Wrap(
                     children: <Widget>[
